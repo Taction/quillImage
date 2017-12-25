@@ -75,8 +75,8 @@
           if (url != null && url.length > 0) {
 
             var value = url
-            value = value.indexOf('http') != -1 ? value : 'http:' + value
-            let index = vm.addImgRange != null?vm.addImgRange.index:0
+            value = value.indexOf('http') != -1 ? value : 'http:' + value //返回图片网址中如果没有http自动拼接
+            let index = vm.addImgRange != null?vm.addImgRange.index:0 // 获取插入时的位置索引，如果获取失败，则插入到最前面
             vm.$refs.newEditor.quill.insertEmbed(index , 'image', value, Quill.sources.USER)
             var img = new Image()
             img.src = value
@@ -93,11 +93,11 @@
         }
         vm.imageLoading = false
       },
-      uploadImgReq(formData) {
+      uploadImgReq (formData) {
+        // 这里实现你自己的图片上传
         return new Promise((resolve, reject) => {
-          // 这里实现你自己的图片上传
           if (true) {
-            resolve("http://img4.duitang.com/uploads/item/201603/01/20160301110042_xeTuF.thumb.700_0.jpeg")
+            resolve("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1514179021485&di=fae56d93e493b0a50f550ed16a8c5f9d&imgtype=0&src=http%3A%2F%2Fpic.92to.com%2F201612%2F11%2Faceb0f89128a4554a33d5a735e165ca9_th.jpg")
           } else {
             reject({message: '图片上传失败'})
           }

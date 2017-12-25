@@ -14,7 +14,7 @@ export default {
   components: {richTextEditor},
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App',
+      msg: 'Welcome to image upload demo',
       content: ''
     }
   },
